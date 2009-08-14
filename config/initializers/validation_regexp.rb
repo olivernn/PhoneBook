@@ -7,4 +7,7 @@ module ValidationRegExp
   RE_DOMAIN_TLD   = '(?:[A-Z]{2}|com|org|net|edu|gov|mil|biz|info|mobi|name|aero|jobs|museum)'
   RE_EMAIL_OK     = /\A#{RE_EMAIL_NAME}@#{RE_DOMAIN_HEAD}#{RE_DOMAIN_TLD}\z/i
   MSG_EMAIL_BAD   = "should look like an email address."
+  
+  RE_PHONE_OK = /\A00\s\d{3}\s\d{6}\z/
+  MSG_PHONE_BAD = "should be in the format '00 XXX XXXXXX'"
 end

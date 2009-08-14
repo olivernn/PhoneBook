@@ -49,6 +49,17 @@ describe Contact do
   end
   
   describe "validity of the phone" do
-    it "should be invalid with a phone not in the format 00 XXX XXXXXX"
+    it "should be invalid with a phone not in the format 00 XXX XXXXXX" do
+      @contact.attributes = @valid_attributes.except(:phone)
+      ["123", "1234567890", "00123123456", "not a phone number", "00 123 1234567", "00 1234 12345"].each do |invalid_phone|
+        @contact.phone = invalid_phone
+        @contact.should_not be_valid
+      end
+    end
+    
+    it "should be valid without a phone" do
+      @contact.attributes = @valid_attributes.except(:phone)
+      @contact.should be_valid
+    end
   end
 end
