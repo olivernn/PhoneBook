@@ -11,10 +11,16 @@
 		<li>
 			<div><%= display_picture_thumbnail(contact.picture) %></div>
 			<h2 class="list_name"><%= link_to contact.full_name, contact_path(contact) %></h2>
-			<p class-"list_details">
-				Phone: <%= contact.phone %><br/>
-				Email: <%= contact.email %>
-			</p>
+			<table class="contact_details">
+				<tr>
+					<th>Phone:</th>
+					<td><%=h contact.phone %></td>
+				</tr>
+				<tr>
+					<th>Email:</th>
+					<td><%=h contact.email %></td>
+				</tr>
+			</table>
 		</li>
 	<% end -%>
 </ul>

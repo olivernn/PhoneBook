@@ -47,6 +47,11 @@ ul.contacts{
 	margin-top:40px;
 }
 
+ul.contacts span{
+	color:#909090;
+	text-align:right;
+}
+
 ul.contacts li{
 	border-bottom:1px #909090 solid;
 }
@@ -57,6 +62,10 @@ ul.contacts h2{
 
 ul.contacts h2 a{
 	text-decoration:none;
+}
+
+ul.contacts h2 a:hover{
+	text-decoration:underline;
 }
 
 ul.contacts div{
@@ -76,4 +85,18 @@ ul.contacts div{
 
 #search_form input.focused{
 	color:#303030;
-} 
+}
+
+table.contact_details th{
+	text-align:right;
+	color:#909090;
+}
+
+table.contact_details td{
+	padding-left:18px;
+}
+
+table.contact_details{
+	margin-bottom:20px;
+	margin-left:-4px;
+}
