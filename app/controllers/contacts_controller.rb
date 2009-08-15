@@ -4,6 +4,11 @@ class ContactsController < ApplicationController
     @contacts = Contact.search(:first_name => params[:first_name],
                                :last_name => params[:last_name],
                                :page => params[:page])
+                               
+    respond_to do |format|
+      format.html # index.html.erb
+      format.js   # index.js.erb
+    end
   end
   
   def show

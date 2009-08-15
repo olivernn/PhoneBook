@@ -9,22 +9,7 @@
 </div>	
 
 <ul class="contacts">
-	<% @contacts.each do |contact| %>
-		<li>
-			<div><%= display_picture_thumbnail(contact.picture) %></div>
-			<h2 class="list_name"><%= link_to contact.full_name, contact_path(contact) %></h2>
-			<table class="contact_details">
-				<tr>
-					<th>Phone:</th>
-					<td><%=h contact.phone %></td>
-				</tr>
-				<tr>
-					<th>Email:</th>
-					<td><%= mail_to contact.email %></td>
-				</tr>
-			</table>
-		</li>
-	<% end -%>
+	<%= render :partial => 'contacts_list' %>
 </ul>
 
 <%= will_paginate @contacts %>
