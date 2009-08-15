@@ -22,6 +22,11 @@ input{
 	color:#FFFFFF;
 }
 
+#header h1 a{
+	color:#FFFFFF;
+	text-decoration:none;
+}
+
 #main{
 	border-top:5px #58FEC1 solid;
 	background: #fff;

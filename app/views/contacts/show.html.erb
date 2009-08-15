@@ -1,8 +1,16 @@
-<h2><%= @contact.full_name %></h2>
+<h2 class="name"><%= @contact.full_name %></h2>
 
-<%= image_tag @contact.picture(:normal), :class => 'picture' %>
+<%= image_tag @contact.picture(:normal), :class => 'picture' if @contact.picture.exists? %>
 
-<%= @contact.phone %>
-<%= @contact.email %>
+<table class="contact_details">
+	<tr>
+		<th>Phone:</th>
+		<td><%=h @contact.phone %></td>
+	</tr>
+	<tr>
+		<th>Email:</th>
+		<td><%=h @contact.email %></td>
+	</tr>
+</table>
 
 <%= link_to "Edit", edit_contact_path(@contact) %>

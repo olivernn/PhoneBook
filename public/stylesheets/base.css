@@ -47,11 +47,6 @@ ul.contacts{
 	margin-top:40px;
 }
 
-ul.contacts span{
-	color:#909090;
-	text-align:right;
-}
-
 ul.contacts li{
 	border-bottom:1px #909090 solid;
 }
@@ -99,4 +94,61 @@ table.contact_details td{
 table.contact_details{
 	margin-bottom:20px;
 	margin-left:-4px;
+}
+
+/* === SHOW === */
+img.picture{
+	float:left;
+	margin-right:20px;
+}
+
+h2.name{
+	font-size:2em;
+	color:#2CB282;
+}
+
+/* === FORMS === */
+fieldset label, fieldset input{
+	display:inline;
+	float:none;
+	width:928px;
+	margin-left:20px;
+	margin-right:20px;
+	font-size:1.2em;
+}
+
+fieldset label{
+	font-size:0.8em;
+}
+
+input.medium{
+	width:200px;
+}
+
+fieldset fieldset p{
+	font-size:0.8em;
+}
+
+fieldset input{
+	margin-bottom:20px;
+}
+
+fieldset input[type=radio]{
+	margin-top:10px;
+	width:15px;
+}
+
+/* === ERROR MESSAGES === */
+div#errorExplanation {
+	border:1px solid red;
+	padding:10px;
+	margin-bottom:10px;
+}
+
+div#errorExplanation h2 {
+	color:red;
+}
+
+div#errorExplanation p {
+	color:red;
 }

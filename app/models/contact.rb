@@ -4,7 +4,7 @@ class Contact < ActiveRecord::Base
   has_attached_file :picture,
     :styles => {
       :thumbnail => "50x50#",
-      :normail => "300x300>"
+      :normal => "200x200>"
     }
   
   validates_presence_of :first_name, :last_name
