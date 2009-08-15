@@ -1,10 +1,12 @@
+<p id="new_link"><%= link_to "New Contact", new_contact_path %></p>
+
 <div id="search_form">
 	<% form_tag contacts_path, :method => :get do %>
 		<%= text_field_tag :first_name, params[:first_name], :title => "First Name" %>
 		<%= text_field_tag :last_name, params[:last_name], :title => "Last Name" %>
 		<%= submit_tag "Search", :class => 'focused' %>
 	<% end -%>
-</div>
+</div>	
 
 <ul class="contacts">
 	<% @contacts.each do |contact| %>
@@ -18,7 +20,7 @@
 				</tr>
 				<tr>
 					<th>Email:</th>
-					<td><%=h contact.email %></td>
+					<td><%= mail_to contact.email %></td>
 				</tr>
 			</table>
 		</li>
@@ -26,5 +28,3 @@
 </ul>
 
 <%= will_paginate @contacts %>
-
-<%= link_to "New Contact", new_contact_path %>

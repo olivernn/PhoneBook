@@ -40,6 +40,12 @@ div#flash-error {
 }
 
 /* === INDEX === */
+#new_link{
+	float:right;
+	font-size:1.4em;
+	margin-top:3px	;
+}
+
 ul.contacts{
 	list-style:none;
 	padding:0px;
