@@ -1,6 +1,8 @@
 class Contact < ActiveRecord::Base
   include ValidationRegExp
   
+  default_scope :order => 'last_name ASC, first_name ASC'
+  
   has_attached_file :picture,
     :styles => {
       :thumbnail => "50x50#",
@@ -13,6 +15,10 @@ class Contact < ActiveRecord::Base
   validates_format_of :phone, :with => RE_PHONE_OK, :message => MSG_PHONE_BAD, :allow_nil => true, :allow_blank => true
   validates_attachment_size :picture, :less_than => 1.megabytes, :message => "must be less than 1MB"
   validates_attachment_content_type :picture, :content_type => 'image/jpeg'
+  
+  def to_param
+    "#{id}-#{full_name.parameterize.to_s}"
+  end
   
   def full_name
     first_name + " " + last_name

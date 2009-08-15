@@ -86,4 +86,10 @@ describe Contact do
     @contact.picture = File.new(RAILS_ROOT + '/spec/fixtures/wrong_format.gif')
     @contact.should_not be_valid
   end
+  
+  it "should have a human friendly url including the full name" do
+    @contact.attributes = @valid_attributes
+    @contact.save
+    @contact.to_param.should == "#{@contact.id}-#{@contact.full_name.parameterize.to_s}"
+  end
 end
