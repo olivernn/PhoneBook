@@ -11,7 +11,7 @@
 		<meta name="MSSmartTagsPreventParsing" content="true" />
 		
 		<%= stylesheet_link_tag :all %>
-		<%= javascript_include_tag :all %>
+		<%= javascript_include_tag 'jQuery', 'application' %>
 		
 	</head>
 	<body>
@@ -21,8 +21,10 @@
 		</div>
 
 		<div id="main">
-			<%= flash_messages %>
-			<%= yield :layout %>
+			<div id="container">
+				<%= flash_messages %>
+				<%= yield :layout %>
+			</div>
 		</div>
 	</body>
 </html>
