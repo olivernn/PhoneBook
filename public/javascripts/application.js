@@ -21,3 +21,16 @@ $(document).ready(function(){
 		});
 	});
 });
+
+// making sure that when the search form is submitted the inline labels do not go too!
+$(document).ready(function(){
+	$('#search_form').submit(function(){
+		$('#search_form input').each(function(){
+			if($(this).val() === $(this).attr('title')){
+				$(this).val('');
+			}
+		});
+		
+		
+	});
+});

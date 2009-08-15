@@ -9,7 +9,8 @@
 <ul class="contacts">
 	<% @contacts.each do |contact| %>
 		<li>
-			<h3 class="list_name"><%= link_to contact.full_name, contact_path(contact) %></h3>
+			<div><%= display_picture_thumbnail(contact.picture) %></div>
+			<h2 class="list_name"><%= link_to contact.full_name, contact_path(contact) %></h2>
 			<p class-"list_details">
 				Phone: <%= contact.phone %><br/>
 				Email: <%= contact.email %>
