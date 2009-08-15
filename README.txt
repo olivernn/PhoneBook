@@ -6,3 +6,4 @@ Assumptions:
 4) A contact is valid without a picture.
 5) A contact picture can only be a jpg.
 6) A contact can have only one picture.
+7) When searching for contacts there will be one search query, since you want to search by first name OR last name.  So you can search for "Oliver" or "Nightingale".

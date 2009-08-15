@@ -31,7 +31,7 @@ Feature: Manage contact information
 	  Given the following contact records
 	 | first_name | last_name | email                                  | phone         |
 	 | Duanne     | Allman    | duanne-allman@great-gig-in-the-sky.com | 00 123 456789 |
-	 | Stevie Ray | Vaughn    | srv@great-gig-in-the-sky.com           | 00 123 456789 |
+	 | Stevie-Ray | Vaughn    | srv@great-gig-in-the-sky.com           | 00 123 456789 |
 	 | Marc       | Bolan     | marc@t-rex.com                         | 00 123 456789 |
 	 | Jeff       | Buckley   | jeff@hallelujah.com                    | 00 123 456789 |
 	 | Kurt       | Cobain    | kurt@nevermind.com                     | 00 123 456789 |
@@ -43,7 +43,7 @@ Feature: Manage contact information
 	 | Robert     | Johnson   | rob@the-crossroads.com                 | 00 123 456789 |
 	  When I am on the contact list page
 	  Then I should see "Duanne Allman"
-		And I should see "Stevie Ray Vaugh"
+		And I should see "Stevie-Ray Vaugh"
 		And I should see "Marc Bolan"
 		And I should see "Jeff Buckley"
 		And I should see "Kurt Cobain"
