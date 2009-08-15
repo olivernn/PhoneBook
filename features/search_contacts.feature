@@ -4,7 +4,7 @@ Feature: Search contacts
   I want to be able to search contacts using first OR last name
 
   Background:
-		Given I have the following contact records
+		Given the following contact records
 		 | first_name | last_name | email                                  | phone         |
 		 | Duanne     | Allman    | duanne-allman@great-gig-in-the-sky.com | 00 123 456789 |
 		 | Stevie-Ray | Vaughn    | srv@great-gig-in-the-sky.com           | 00 123 456789 |
@@ -21,24 +21,23 @@ Feature: Search contacts
 		 | Jim        | Morrison  | jim@the-doors.com                      | 00 123 456789 |
 		 | Sterling   | Morrison  | sterling@velvet-underground.com        | 00 123 456789 |
 
-
 	Scenario: Searching by full first name only
 	  Given I am on the contact list page
-	  When I fill in "search" with "Duanne"
+	  When I fill in "first_name" with "Duanne"
 		And I press "Search"
 	  Then I should see "Duanne Allman"
 		And I should not see "Marc Bolan"
 		And I should not see "Next"
-		
+	
 	Scenario: Searching by partial name only
 	  Given I am on the contact list page
-	  When I fill in "search" with "an"
+	  When I fill in "last_name" with "an"
 		And I press "Search"
 	  Then I should see "Duanne Allman"
 		And I should see "Marc Bolan"
-		And I should see "Ian Curtis"
-		And I should see "Danny Gatton"
-		And I should see "Shannon Hoon"
+		And I should not see "Ian Curtis"
+		And I should not see "Danny Gatton"
+		And I should not see "Shannon Hoon"
 		And I should not see "Stevie-Ray Vaughn"
 		And I should not see "Jeff Buckley"
 		And I should not see "Kurt Cobain"
@@ -47,10 +46,10 @@ Feature: Search contacts
 		And I should not see "John Lennon"
 		And I should not see "Robert Johnson"
 		And I should not see "Next"
-		
+	
 	Scenario: searching by last name only
 	  Given I am on the contact list page
-	  When I fill in "search" with "Bolan"
+	  When I fill in "last_name" with "Bolan"
 		And I press "Search"
 	  Then I should see "Marc Bolan"
 		And I should not see "Danny Gatton"
@@ -58,10 +57,12 @@ Feature: Search contacts
 		
 	Scenario: searching by full name
 	  Given I am on the contact list page
-	  When I fill in "search" with "Jim Morrison"
+	  When I fill in "first_name" with "Jim"
+		And I fill in "last_name" with "Morrison"
 		And I press "Search"
 	  Then I should see "Jim Morrison"
 		And I should not see "Sterling Morrison"
+		And I should not see "Next"
 	
 	
 	

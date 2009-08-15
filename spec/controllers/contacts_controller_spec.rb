@@ -6,10 +6,20 @@ describe ContactsController do
   end
   
   describe "responding to a GET index" do
-    it "should paginate all contacts as @contacts, 10 per page" do
-      Contact.should_receive(:paginate).with(:per_page => 10, :page => nil).and_return([mock_contact])
-      get :index, :page => nil
-      assigns[:contacts].should == [mock_contact]
+    describe "without search parameters" do
+      it "should paginate all contacts as @contacts, 10 per page" do
+        Contact.should_receive(:search).with(:first_name => nil, :last_name => nil, :page => nil).and_return([mock_contact])
+        get :index, :page => nil, :first_name => nil, :last_name => nil
+        assigns[:contacts].should == [mock_contact]
+      end
+    end
+    
+    describe "with search parameters" do
+      it "should paginate all contacts as @contacts that match the search criteria, 10 per page" do
+        Contact.should_receive(:search).with(:first_name => "Oliver", :last_name => "Nightingale", :page => nil).and_return([mock_contact])
+        get :index, :page => nil, :first_name => "Oliver", :last_name => "Nightingale"
+        assigns[:contacts].should == [mock_contact]
+      end
     end
   end
   

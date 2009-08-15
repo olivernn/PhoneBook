@@ -17,4 +17,11 @@ class Contact < ActiveRecord::Base
   def full_name
     first_name + " " + last_name
   end
+  
+  def self.search(options={})
+    {:first_name => "", :last_name => ""}.merge(options)
+    self.paginate(:per_page => 10,
+                  :page => options[:page],
+                  :conditions => ["first_name LIKE ? AND last_name LIKE ?", "%#{options[:first_name]}%", "%#{options[:last_name]}%"])
+  end
 end

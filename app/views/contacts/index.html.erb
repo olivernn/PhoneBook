@@ -1,3 +1,9 @@
+<% form_tag contacts_path, :method => :get do %>
+	<%= text_field_tag :first_name, params[:first_name] %>
+	<%= text_field_tag :last_name, params[:last_name] %>
+	<%= submit_tag "Search" %>
+<% end -%>
+
 <ul class="contacts">
 	<% @contacts.each do |contact| %>
 		<li><%= contact.full_name %></li>
