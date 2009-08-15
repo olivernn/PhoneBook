@@ -5,3 +5,7 @@ end
 Then /^I should have ([0-9]+) contact$/ do |count|
   Contact.count.should == count.to_i
 end
+
+Given /^I have the following contact$/ do |table|
+  pending
+end

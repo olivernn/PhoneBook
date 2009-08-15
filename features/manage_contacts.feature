@@ -2,7 +2,7 @@ Feature: Manage contact information
   In order to keep track of the people I work with
   As a wannabe New Bamboo developer
   I want to be able to create, edit and view their contact information
-	@focus
+
   Scenario: Create contact
     Given I have no contacts
 		And I am on the list of contacts page
@@ -16,12 +16,12 @@ Feature: Manage contact information
 		And I should see "Jimi Hendrix"
 		And I should have 1 contact
   
-  
+	@focus  
   Scenario: Edit contact
-    Given I have the following contact
-	 | first name | last name | email                                | phone       |
-	 | Paul       | Kossof    | paul-kossof@great-gig-in-the-sky.com | 02012341234 |
-    When I am on the Paul Kossof contact page
+    Given the following contact record
+	 | first_name | last_name | email                                | phone         |
+	 | Paul       | Kossof    | paul-kossof@great-gig-in-the-sky.com | 00 123 456789 |
+    When I am on Paul's contact page
 		And I follow "Edit"
 		And I fill in "Email" with "paul-kossof@all-right-now.com"
 		And I press "Update"
@@ -29,8 +29,8 @@ Feature: Manage contact information
     And I should see "paul-kossof@all-right-now.com"
 
 	Scenario: List contacts
-	  Given I have the following contact # need enough so that we can see pagination
-	 | first name | last name | email                                  | phone       |
+	  Given the following contact records # need enough so that we can see pagination
+	 | first_name | last_name | email                                  | phone       |
 	 | Duanne     | Allman    | duanne-allman@great-gig-in-the-sky.com | 02012341234 |
 	 | Stevie Ray | Vaughn    | srv@great-gig-in-the-sky.com           | 02043211234 |
 	 | Marc       | Bolan     | marc@t-rex.com                         | 02044448888 |
@@ -57,8 +57,8 @@ Feature: Manage contact information
 		And I should see "Next"
   
 	Scenario: View contact
-	  Given I have the following contact
-	 | first name | last name | email                             | phone       |
+	  Given the following contact record
+	 | first_name | last_name | email                             | phone       |
 	 | Eddie      | Cochran   | eddie-cochran@dead-rock-stars.com | 02012341234 |
 	  When I am on the Eddie Cochran contact page
 	  Then I should see "Eddie"

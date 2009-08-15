@@ -21,4 +21,18 @@ class ContactsController < ApplicationController
       render 'new'
     end
   end
+  
+  def edit
+    @contact = Contact.find(params[:id])
+  end
+  
+  def update
+    @contact = Contact.find(params[:id])
+    if @contact.update_attributes(params[:contact])
+      flash[:notice] = "Successfully updated contact."
+      redirect_to contact_path(@contact)
+    else
+      render 'edit'
+    end
+  end
 end
