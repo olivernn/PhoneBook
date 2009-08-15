@@ -54,8 +54,7 @@ Feature: Manage contact information
 		And I should see "John Lennon"
 		And I should not see "Robert Johnson"
 		And I should see "Next"
-
-	@focus  
+  
 	Scenario: View contact
 	  Given the following contact record
 	 | first_name | last_name | email                             | phone         |

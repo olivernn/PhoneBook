@@ -1,5 +1,7 @@
 <h2><%= @contact.full_name %></h2>
 
+<%= image_tag @contact.picture(:normal), :class => 'picture' %>
+
 <%= @contact.phone %>
 <%= @contact.email %>
 

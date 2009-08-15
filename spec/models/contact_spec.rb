@@ -67,4 +67,23 @@ describe Contact do
     @contact.attributes = @valid_attributes
     @contact.full_name.should == @contact.first_name + " " + @contact.last_name
   end
+  
+  it "should allow picture upload" do
+    @contact.attributes = @valid_attributes
+    @contact.picture = File.new(RAILS_ROOT + '/spec/fixtures/giraffe.jpg')
+    @contact.save
+  end
+  
+  it "should be invalid with a picture larger than 1MB" do
+    @contact.attributes = @valid_attributes
+    @contact.picture = File.new(RAILS_ROOT + '/spec/fixtures/too_big.jpg')
+    @contact.should_not be_valid
+  end
+  
+  # this is not an extensive list of invalid formats
+  it "should be invalid with a picture that isn't a jpeg" do
+    @contact.attributes = @valid_attributes
+    @contact.picture = File.new(RAILS_ROOT + '/spec/fixtures/wrong_format.gif')
+    @contact.should_not be_valid
+  end
 end

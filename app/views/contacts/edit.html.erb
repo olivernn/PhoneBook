@@ -1,6 +1,6 @@
 <h1>Edit Contact</h1>
 
-<% form_for(@contact, :method => :put) do |f| %>
+<% form_for(@contact, :method => :put, :html => {:multipart => true}) do |f| %>
   <%= f.error_messages %>
   <%= render :partial => 'form', :locals => {:f => f} %>
   <p>
