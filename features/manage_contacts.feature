@@ -15,8 +15,7 @@ Feature: Manage contact information
     Then I should see "Successfully created contact."
 		And I should see "Jimi Hendrix"
 		And I should have 1 contact
-  
-	@focus  
+    
   Scenario: Edit contact
     Given the following contact record
 	 | first_name | last_name | email                                | phone         |
@@ -28,32 +27,33 @@ Feature: Manage contact information
 		Then I should see "Successfully updated contact."
     And I should see "paul-kossof@all-right-now.com"
 
+	@focus
 	Scenario: List contacts
 	  Given the following contact records # need enough so that we can see pagination
-	 | first_name | last_name | email                                  | phone       |
-	 | Duanne     | Allman    | duanne-allman@great-gig-in-the-sky.com | 02012341234 |
-	 | Stevie Ray | Vaughn    | srv@great-gig-in-the-sky.com           | 02043211234 |
-	 | Marc       | Bolan     | marc@t-rex.com                         | 02044448888 |
-	 | Jeff       | Buckley   | jeff@hallelujah.com                    | 02012345678 |
-	 | Kurt       | Cobain    | kurt@nevermind.com                     | 02055515552 |
-	 | Ian        | Curtis    | ian@joy-division.com                   | 02012349876 |
-	 | Danny      | Gatton    | dg@great-gig-in-the-sky.com            | 02012341234 |
-	 | Michael    | Hutchence | michael@great-gig-in-the-sky.com       | 02012341235 |
-	 | Phil       | Lynott    | phil@great-gig-in-the-sky.com          | 02043214321 |
-	 | John       | Lennon    | john@strawberry-fields.com             | 02055559999 |
-	 | Robert     | Johnson   | rob@the-crossroads.com                 | 02012345678 |
+	 | first_name | last_name | email                                  | phone         |
+	 | Duanne     | Allman    | duanne-allman@great-gig-in-the-sky.com | 00 123 456789 |
+	 | Stevie Ray | Vaughn    | srv@great-gig-in-the-sky.com           | 00 123 456789 |
+	 | Marc       | Bolan     | marc@t-rex.com                         | 00 123 456789 |
+	 | Jeff       | Buckley   | jeff@hallelujah.com                    | 00 123 456789 |
+	 | Kurt       | Cobain    | kurt@nevermind.com                     | 00 123 456789 |
+	 | Ian        | Curtis    | ian@joy-division.com                   | 00 123 456789 |
+	 | Danny      | Gatton    | dg@great-gig-in-the-sky.com            | 00 123 456789 |
+	 | Michael    | Hutchence | michael@great-gig-in-the-sky.com       | 00 123 456789 |
+	 | Phil       | Lynott    | phil@great-gig-in-the-sky.com          | 00 123 456789 |
+	 | John       | Lennon    | john@strawberry-fields.com             | 00 123 456789 |
+	 | Robert     | Johnson   | rob@the-crossroads.com                 | 00 123 456789 |
 	  When I am on the contact list page
-	  Then I should see "Duanne"
-		And I should see "Stevie Ray"
-		And I should see "Marc"
-		And I should see "Jeff"
-		And I should see "Kurt"
-		And I should see "Ian"
-		And I should see "Gatton"
-		And I should see "michael@great-gig-in-the-sky.com"
-		And I should see "Lynott"
-		And I should see "Lennon"
-		And I should not see "rob@the-crossroads.com"
+	  Then I should see "Duanne Allman"
+		And I should see "Stevie Ray Vaugh"
+		And I should see "Marc Bolan"
+		And I should see "Jeff Buckley"
+		And I should see "Kurt Cobain"
+		And I should see "Ian Curtis"
+		And I should see "Danny Gatton"
+		And I should see "Michael Hutchence"
+		And I should see "Phil Lynott"
+		And I should see "John Lennon"
+		And I should not see "Robert Johnson"
 		And I should see "Next"
   
 	Scenario: View contact
