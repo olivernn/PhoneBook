@@ -14,6 +14,8 @@ module NavigationHelpers
       contacts_path
     when /(.*)'s contact page/
       contact_path(Contact.find_by_first_name($1))
+    when /the contact list page/
+      contacts_path
     # Add more mappings here.
     # Here is a more fancy example:
     #

@@ -5,6 +5,14 @@ describe ContactsController do
     @mock_contact ||= mock_model(Contact, stubs)
   end
   
+  describe "responding to a GET index" do
+    it "should paginate all contacts as @contacts, 10 per page" do
+      Contact.should_receive(:paginate).with(:per_page => 10, :page => nil).and_return([mock_contact])
+      get :index, :page => nil
+      assigns[:contacts].should == [mock_contact]
+    end
+  end
+  
   describe "responding to a GET new" do
     it "should expose a new contact as @contact" do
       Contact.should_receive(:new).and_return(mock_contact)

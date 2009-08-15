@@ -1,1 +1,9 @@
+<ul class="contacts">
+	<% @contacts.each do |contact| %>
+		<li><%= contact.full_name %></li>
+	<% end -%>
+</ul>
+
+<%= will_paginate @contacts %>
+
 <%= link_to "New Contact", new_contact_path %>

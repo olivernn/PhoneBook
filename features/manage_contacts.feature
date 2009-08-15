@@ -29,7 +29,7 @@ Feature: Manage contact information
 
 	@focus
 	Scenario: List contacts
-	  Given the following contact records # need enough so that we can see pagination
+	  Given the following contact records
 	 | first_name | last_name | email                                  | phone         |
 	 | Duanne     | Allman    | duanne-allman@great-gig-in-the-sky.com | 00 123 456789 |
 	 | Stevie Ray | Vaughn    | srv@great-gig-in-the-sky.com           | 00 123 456789 |
