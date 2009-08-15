@@ -62,4 +62,9 @@ describe Contact do
       @contact.should be_valid
     end
   end
+  
+  it "should have a full name" do
+    @contact.attributes = @valid_attributes
+    @contact.full_name.should == @contact.first_name + " " + @contact.last_name
+  end
 end
