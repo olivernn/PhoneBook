@@ -27,7 +27,6 @@ Feature: Manage contact information
 		Then I should see "Successfully updated contact."
     And I should see "paul-kossof@all-right-now.com"
 
-	@focus
 	Scenario: List contacts
 	  Given the following contact records
 	 | first_name | last_name | email                                  | phone         |
@@ -55,16 +54,17 @@ Feature: Manage contact information
 		And I should see "John Lennon"
 		And I should not see "Robert Johnson"
 		And I should see "Next"
-  
+
+	@focus  
 	Scenario: View contact
 	  Given the following contact record
-	 | first_name | last_name | email                             | phone       |
-	 | Eddie      | Cochran   | eddie-cochran@dead-rock-stars.com | 02012341234 |
-	  When I am on the Eddie Cochran contact page
+	 | first_name | last_name | email                             | phone         |
+	 | Eddie      | Cochran   | eddie-cochran@dead-rock-stars.com | 00 123 456789 |
+	  When I am on Eddie's contact page
 	  Then I should see "Eddie"
 		And I should see "Cochran"
 		And I should see "eddie-cochran@dead-rock-stars.com"
-		And I should see "02012341234"
+		And I should see "00 123 456789"
 	
 	
 	
