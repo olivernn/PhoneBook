@@ -2,7 +2,7 @@ Feature: Manage contact information
   In order to keep track of the people I work with
   As a wannabe New Bamboo developer
   I want to be able to create, edit and view their contact information
-
+	@focus
   Scenario: Create contact
     Given I have no contacts
 		And I am on the contact list page
