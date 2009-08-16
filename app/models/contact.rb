@@ -1,7 +1,10 @@
 class Contact < ActiveRecord::Base
   include ValidationRegExp
+  include TwitterSearchClient
   
   default_scope :order => 'last_name ASC, first_name ASC'
+  
+  named_scope :tweeple, :conditions => "twitter_user_name IS NOT NULL"
   
   has_attached_file :picture,
     :styles => {
@@ -31,5 +34,22 @@ class Contact < ActiveRecord::Base
     self.paginate(:per_page => 10,
                   :page => options[:page],
                   :conditions => ["first_name LIKE ? AND last_name LIKE ?", "%#{options[:first_name]}%", "%#{options[:last_name]}%"])
+  end
+  
+  def twitterer?
+    !twitter_user_name.nil?
+  end
+  
+  def refresh_tweets
+    if twitterer?
+      results = twitter_search.query :q => twitter_search_query, :rpp => '30'
+      self.tweets.add_new_tweets(results) if results
+    end
+  end
+  
+  private
+  
+  def twitter_search_query
+    "from:" + twitter_user_name
   end
 end

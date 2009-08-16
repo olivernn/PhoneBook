@@ -6,7 +6,8 @@ describe Contact do
       :first_name => "Oliver",
       :last_name => "Nightingale",
       :email => "oliver@mail.com",
-      :phone => "00 123 456789"
+      :phone => "00 123 456789",
+      :twitter_user_name => "minimalpixel"
     }
     
     @contact = Contact.new
@@ -97,5 +98,21 @@ describe Contact do
     association = Contact.reflect_on_association(:tweets)
     association.should_not be_nil
     association.macro.should == :has_many
+  end
+  
+  it "should give a twitter search query" do
+    @contact.attributes = @valid_attributes
+    @contact.send(:twitter_search_query).should == "from:" + @contact.twitter_user_name
+  end
+  
+  it "should know if it is a twitterer" do
+    @contact.attributes = @valid_attributes.except(:twitter_user_name)
+    @contact.twitterer?.should == false
+    @contact.twitter_user_name = @valid_attributes[:twitter_user_name]
+    @contact.twitterer?.should == true
+  end
+  
+  it "should have a tweeple named scope that returns all twitterers" do
+    Contact.tweeple.proxy_options.should == {:conditions => "twitter_user_name IS NOT NULL"}
   end
 end
