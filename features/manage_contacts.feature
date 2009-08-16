@@ -26,12 +26,12 @@ Feature: Manage contact information
 		And I press "Update"
 		Then I should see "Successfully updated contact."
     And I should see "paul-kossof@all-right-now.com"
-
+		
+	@focus
 	Scenario: List contacts
 	  Given the following contact records
 	 | first_name | last_name | email                                  | phone         |
 	 | Duanne     | Allman    | duanne-allman@great-gig-in-the-sky.com | 00 123 456789 |
-	 | Stevie-Ray | Vaughn    | srv@great-gig-in-the-sky.com           | 00 123 456789 |
 	 | Marc       | Bolan     | marc@t-rex.com                         | 00 123 456789 |
 	 | Jeff       | Buckley   | jeff@hallelujah.com                    | 00 123 456789 |
 	 | Kurt       | Cobain    | kurt@nevermind.com                     | 00 123 456789 |
@@ -41,9 +41,9 @@ Feature: Manage contact information
 	 | Phil       | Lynott    | phil@great-gig-in-the-sky.com          | 00 123 456789 |
 	 | John       | Lennon    | john@strawberry-fields.com             | 00 123 456789 |
 	 | Robert     | Johnson   | rob@the-crossroads.com                 | 00 123 456789 |
+	 | Stevie Ray | Vaughn    | srv@great-gig-in-the-sky.com           | 00 123 456789 |
 	  When I am on the contact list page
 	  Then I should see "Duanne Allman"
-		And I should see "Stevie-Ray Vaugh"
 		And I should see "Marc Bolan"
 		And I should see "Jeff Buckley"
 		And I should see "Kurt Cobain"
@@ -52,7 +52,8 @@ Feature: Manage contact information
 		And I should see "Michael Hutchence"
 		And I should see "Phil Lynott"
 		And I should see "John Lennon"
-		And I should not see "Robert Johnson"
+		And I should see "Robert Johnson"
+		And I should not see "Stevie Ray Vaughn"
 		And I should see "Next"
   
 	Scenario: View contact

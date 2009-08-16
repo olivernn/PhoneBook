@@ -13,8 +13,7 @@ Feature: Viewing recent tweets
 		And I press "Update"
 	  Then I should see "Successfully updated contact."
 		And I should see "minimalpixel"
-	
-	@focus	
+		
 	Scenario: Viewing a contacts recent tweets
 	  Given the following contact record
 		 | first_name | last_name   | email                   | phone         | twitter_user_name |
