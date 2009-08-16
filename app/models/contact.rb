@@ -35,7 +35,7 @@ class Contact < ActiveRecord::Base
     {:first_name => "", :last_name => ""}.merge(options)
     self.paginate(:per_page => 10,
                   :page => options[:page],
-                  :conditions => ["first_name LIKE ? AND last_name LIKE ?", "%#{options[:first_name]}%", "%#{options[:last_name]}%"])
+                  :conditions => ["first_name LIKE ? AND last_name LIKE ?", "#{options[:first_name]}%", "#{options[:last_name]}%"])
   end
   
   def twitterer?
@@ -56,6 +56,6 @@ class Contact < ActiveRecord::Base
   end
   
   def strip_twitter_user_name
-    twitter_user_name.strip!
+    twitter_user_name.strip! unless twitter_user_name.nil?
   end
 end

@@ -31,15 +31,15 @@ Feature: Search contacts
 	
 	Scenario: Searching by partial name only
 	  Given I am on the contact list page
-	  When I fill in "last_name" with "an"
+	  When I fill in "last_name" with "b"
 		And I press "Search"
-	  Then I should see "Duanne Allman"
+	  Then I should not see "Duanne Allman"
 		And I should see "Marc Bolan"
 		And I should not see "Ian Curtis"
 		And I should not see "Danny Gatton"
 		And I should not see "Shannon Hoon"
 		And I should not see "Stevie-Ray Vaughn"
-		And I should not see "Jeff Buckley"
+		And I should see "Jeff Buckley"
 		And I should not see "Kurt Cobain"
 		And I should not see "Michael Hutchence"
 		And I should not see "Phil Lynott"
