@@ -103,14 +103,30 @@ table.contact_details{
 }
 
 /* === SHOW === */
-img.picture{
+#picture_holder{
 	float:left;
 	margin-right:20px;
+	height:400px;
 }
 
 h2.name{
 	font-size:2em;
 	color:#2CB282;
+}
+
+ul.tweets{
+	margin:0px;
+	list-style:none;
+}
+
+ul.tweets li p{
+	margin-bottom:2px;
+}
+
+ul.tweets li .tweeted_at{
+	font-size:0.8em;
+	margin-top:0px;
+	color:#909090;
 }
 
 /* === FORMS === */

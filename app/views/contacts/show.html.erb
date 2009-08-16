@@ -1,6 +1,6 @@
 <h2 class="name"><%= @contact.full_name %></h2>
 
-<%= image_tag @contact.picture(:normal), :class => 'picture' if @contact.picture.exists? %>
+<div id="picture_holder"><%= image_tag @contact.picture(:normal), :class => 'picture' if @contact.picture.exists? %></div>
 
 <table class="contact_details">
 	<tr>
@@ -17,13 +17,15 @@
 	</tr>
 </table>
 
-<table class="tweets">
-	<% @contact.tweets.recent.each do |tweet| %>
-		<tr>
-			<td><%= tweet.text %></td>
-			<td><%= tweet.tweeted_at %></td>
-		</tr>
-	<% end -%>
-</table>
+<span class="links"><%= link_to "Edit", edit_contact_path(@contact) %> | <%= link_to "Back", contacts_path %></span>
 
-<%= link_to "Edit", edit_contact_path(@contact) %>
+<h3>Recent Tweets</h3>
+
+<ul class="tweets">
+	<% @contact.tweets.recent.each do |tweet| %>
+		<li>
+			<p><%=h tweet.text %></p>
+			<span class="tweeted_at"><%=h tweet.tweeted_at  %></span>
+		</li>
+	<% end -%>
+</ul>
