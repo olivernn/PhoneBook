@@ -8,6 +8,8 @@ class Contact < ActiveRecord::Base
       :thumbnail => "50x50#",
       :normal => "200x200>"
     }
+    
+  has_many :tweets
   
   validates_presence_of :first_name, :last_name
   validates_format_of :email, :with => RE_EMAIL_OK, :message => MSG_EMAIL_BAD, :allow_nil => true, :allow_blank => true

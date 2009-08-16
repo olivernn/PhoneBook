@@ -6,4 +6,8 @@ module ContactsHelper
       image_tag '/images/no_image.jpg', :class => 'thumbnail'
     end
   end
+  
+  def twitter_link(twitter_name)
+    link_to twitter_name, "http://twitter.com/" + twitter_name if twitter_name
+  end
 end

@@ -11,6 +11,19 @@
 		<th>Email:</th>
 		<td><%= mail_to @contact.email %></td>
 	</tr>
+	<tr>
+		<th>Twitter:</th>
+		<td><%= twitter_link @contact.twitter_user_name %></td>
+	</tr>
+</table>
+
+<table class="tweets">
+	<% @contact.tweets.recent.each do |tweet| %>
+		<tr>
+			<td><%= tweet.text %></td>
+			<td><%= tweet.tweeted_at %></td>
+		</tr>
+	<% end -%>
 </table>
 
 <%= link_to "Edit", edit_contact_path(@contact) %>

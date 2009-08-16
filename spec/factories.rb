@@ -4,3 +4,10 @@ Factory.define :contact do |f|
   f.email "oliver@mail.com"
   f.phone "00 123 123456"
 end
+
+Factory.define :tweet do |f|
+  f.text "tweeting is fun"
+  f.guid "12345678"
+  f.tweeted_at Time.now
+  f.association :contact
+end

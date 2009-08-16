@@ -92,4 +92,10 @@ describe Contact do
     @contact.save
     @contact.to_param.should == "#{@contact.id}-#{@contact.full_name.parameterize.to_s}"
   end
+  
+  it "should have many tweets" do
+    association = Contact.reflect_on_association(:tweets)
+    association.should_not be_nil
+    association.macro.should == :has_many
+  end
 end
