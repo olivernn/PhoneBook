@@ -19,13 +19,15 @@
 
 <span class="links"><%= link_to "Edit", edit_contact_path(@contact) %> | <%= link_to "Back", contacts_path %></span>
 
-<h3>Recent Tweets</h3>
+<% unless @contact.tweets.recent.empty? %>
+	<h3>Recent Tweets</h3>
 
-<ul class="tweets">
-	<% @contact.tweets.recent.each do |tweet| %>
-		<li>
-			<p><%=h tweet.text %></p>
-			<span class="tweeted_at"><%=h tweet.tweeted_at  %></span>
-		</li>
-	<% end -%>
-</ul>
+	<ul class="tweets">
+		<% @contact.tweets.recent.each do |tweet| %>
+			<li>
+				<p><%=h tweet.text %></p>
+				<span class="tweeted_at"><%=h time_ago_in_words(tweet.tweeted_at)  %> ago</span>
+			</li>
+		<% end -%>
+	</ul>
+<% end -%>
