@@ -110,6 +110,10 @@ describe Contact do
     @contact.twitterer?.should == false
     @contact.twitter_user_name = @valid_attributes[:twitter_user_name]
     @contact.twitterer?.should == true
+    @contact.twitter_user_name = " "
+    # need to validate first
+    @contact.valid?
+    @contact.twitterer?.should == false
   end
   
   it "should have a tweeple named scope that returns all twitterers" do

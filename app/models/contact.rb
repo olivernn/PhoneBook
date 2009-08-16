@@ -14,6 +14,8 @@ class Contact < ActiveRecord::Base
     
   has_many :tweets
   
+  before_validation :strip_twitter_user_name
+  
   validates_presence_of :first_name, :last_name
   validates_format_of :email, :with => RE_EMAIL_OK, :message => MSG_EMAIL_BAD, :allow_nil => true, :allow_blank => true
   validates_uniqueness_of :email, :allow_nil => true, :allow_blank => true
@@ -37,7 +39,7 @@ class Contact < ActiveRecord::Base
   end
   
   def twitterer?
-    !twitter_user_name.nil?
+    !twitter_user_name.nil? && !twitter_user_name.empty?
   end
   
   def refresh_tweets
@@ -51,5 +53,9 @@ class Contact < ActiveRecord::Base
   
   def twitter_search_query
     "from:" + twitter_user_name
+  end
+  
+  def strip_twitter_user_name
+    twitter_user_name.strip!
   end
 end
